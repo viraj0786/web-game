@@ -1,6 +1,7 @@
 var Blood = document.querySelector(".three .bullet div img");
 var Blood2 = document.querySelector(".one .shooter div img");
 var startbtn = document.querySelector(".start-btn");
+var rounds = document.querySelector(".top div h2");
 var count1 = 0;
 var count2  = 0;
 var count = 0;
@@ -10,7 +11,42 @@ startbtn.addEventListener("click", () => {
 });
 function start() {
   var settime;
+  rounds.setAttribute("style", "display: block");
+  if (count == 0){
+    rounds.innerHTML  = "round one";
+    setTimeout(() => {
+      rounds.setAttribute("style", "display: none");
+    }, 300);
+  }
+  if (count == 1){
+    rounds.innerHTML  = "round two";
+    setTimeout(() => {
+      rounds.setAttribute("style", "display: none");
+    }, 300);
+  }
+  if (count == 2){
+    rounds.innerHTML  = "round three";
+    setTimeout(() => {
+      rounds.setAttribute("style", "display: none");
+    }, 300);
+  }
+  if (count == 3){
+    rounds.innerHTML  = "round four";
+    setTimeout(() => {
+      rounds.setAttribute("style", "display: none");
+    }, 300);
+  }
+  if (count == 4){
+    rounds.innerHTML  = "round five";
+    setTimeout(() => {
+      rounds.setAttribute("style", "display: none");
+    }, 300);
+  }
+
   count = ++count;
+
+
+
   console.log("i m count     "+ count);
   /*for left shooter*/
   function tempLoad() {
@@ -96,9 +132,19 @@ function start() {
     console.log(imspan1);
     var health = imspan1 - RandomNo;
     console.log(health);
+    var p2 = document.querySelector(".btns .semi_result .h3 span").innerHTML;
     document.querySelector(".imspan1").innerHTML = health;
+    if (p2 == "3"){
+      rounds.innerHTML  = "player 2 won the game";
+      rounds.setAttribute("style", "display: block");
+      clearTimeout(settime)
+      clearInterval(finish1)
+      clearInterval(finish2)
+    }
     if(health <= "0"){
+     
       console.log("stop");
+
       clearTimeout(settime)
       clearInterval(finish1)
       clearInterval(finish2)
@@ -107,13 +153,18 @@ function start() {
       document.querySelector(".imspan2").innerHTML = "5";
       count1 = ++count1;
       console.log("this is count   "  +   count1);
-      document.querySelector(".semi_result h3 span").innerHTML = count1;
+      document.querySelector(".semi_result .h3 span").innerHTML = count1;
       if(count <= 4){
       settime = setTimeout(() => {
         start();
       }, 2000);
       }
+      if (count == 5){
+        rounds.innerHTML  = "player 2 won the game";
+        rounds.setAttribute("style", "display: block");
+      }
     }
+
   }
   
   function health2() {
@@ -130,9 +181,20 @@ function start() {
       console.log(imspan1);
       var health = imspan1 - RandomNo;
       console.log(health);
+      var p2 = document.querySelector(".btns .semi_result .h2 span").innerHTML;
       document.querySelector(".imspan2").innerHTML = health;
+      if (p2 == "3"){
+        rounds.innerHTML  = "player 1 won the game";
+        rounds.setAttribute("style", "display: block");
+        clearTimeout(settime)
+        clearInterval(finish1)
+        clearInterval(finish2)
+      }
       if(health <= "0"){
         console.log("stop");
+        
+        console.log(typeof(p1));
+
         clearTimeout(settime)
         clearInterval(finish1)
         clearInterval(finish2)
@@ -141,14 +203,20 @@ function start() {
         document.querySelector(".imspan1").innerHTML = "5";
         count2= ++count2;
         console.log("this is count2" +count2);
-        document.querySelector(".semi_result h2 span").innerHTML = count2;
+        document.querySelector(".semi_result .h2 span").innerHTML = count2;
         if(count <= 4){
         settime = setTimeout(() => {
           start();
         }, 2000);
         }
+        if (count == 5){
+          rounds.innerHTML  = "player 1 won the game";
+          rounds.setAttribute("style", "display: block");
+        }
       }
+
     }
+
 }
 
 

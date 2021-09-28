@@ -25,6 +25,24 @@ div.container{
     row-gap: 2rem;
    
 }
+/*health bolck*/
+.top{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    /* align-items: flex-start; */
+    width: 100%;
+    padding: 4rem;
+}
+.top .top-first,.top .top-second{
+    border: 1px solid;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: rgb(212, 58, 58);
+}
+.top .top-first:hover,.top .top-second:hover{
+    background-color: rgb(7, 71, 71);
+}
 /* div one css*/
 .container .outer_div .one{
     /*border: 2px solid red;*/
@@ -140,21 +158,13 @@ div.container{
     left: 17%;
 }
 
-/**/
-.top{
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    width: 100%;
-    margin: 4rem;
-}
-.top .top-first,.top .top-second{
-    border: 1px solid;
-    border-radius: 4px;
+
+
+/*result bolck*/
+.two .result{
     text-align: center;
-    font-size: 1.5rem;
-    background-color: rgb(212, 58, 58);
+    
 }
-.top .top-first:hover,.top .top-second:hover{
-    background-color: rgb(7, 71, 71);
+.top div h2 {
+    text-align: center;
 }
