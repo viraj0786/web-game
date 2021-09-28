@@ -3,14 +3,18 @@ var Blood2 = document.querySelector(".one .shooter div img");
 var startbtn = document.querySelector(".start-btn");
 var count1 = 0;
 var count2  = 0;
+var count = 0;
 startbtn.addEventListener("click", () => {
+
   start();
 });
 function start() {
   var settime;
-
+  count = ++count;
+  console.log("i m count     "+ count);
   /*for left shooter*/
   function tempLoad() {
+   
     var BuletOne = document.querySelector(".two_innerleft img");
     
     console.log(Blood);
@@ -39,10 +43,11 @@ function start() {
   }
   tempLoad();
   var finish1 = setInterval(tempLoad, 4500);
-
+ 
 
   /*for right shooter*/
   function tempLoad1() {
+    
     var BuletOne = document.querySelector(".two_innerright img");
     console.log(BuletOne);
     BuletOne.setAttribute("style", "display: block");
@@ -98,15 +103,16 @@ function start() {
       clearInterval(finish1)
       clearInterval(finish2)
       document.querySelector(".two_innerright img").setAttribute("style", "display: none");
-      document.querySelector(".imspan1").innerHTML = "10";
-      document.querySelector(".imspan2").innerHTML = "10";
+      document.querySelector(".imspan1").innerHTML = "5";
+      document.querySelector(".imspan2").innerHTML = "5";
       count1 = ++count1;
       console.log("this is count   "  +   count1);
       document.querySelector(".semi_result h3 span").innerHTML = count1;
+      if(count <= 4){
       settime = setTimeout(() => {
         start();
       }, 2000);
-    
+      }
     }
   }
   
@@ -131,15 +137,16 @@ function start() {
         clearInterval(finish1)
         clearInterval(finish2)
         document.querySelector(".two_innerright img").setAttribute("style", "display: none");
-        document.querySelector(".imspan2").innerHTML = "10";
-        document.querySelector(".imspan1").innerHTML = "10";
+        document.querySelector(".imspan2").innerHTML = "5";
+        document.querySelector(".imspan1").innerHTML = "5";
         count2= ++count2;
         console.log("this is count2" +count2);
         document.querySelector(".semi_result h2 span").innerHTML = count2;
+        if(count <= 4){
         settime = setTimeout(() => {
           start();
         }, 2000);
-      
+        }
       }
     }
 }
